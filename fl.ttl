@@ -1,0 +1,351 @@
+@prefix : <http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/tsotne/ontologies/2021/4/testont> .
+
+<http://www.semanticweb.org/tsotne/ontologies/2021/4/testont> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#hasRate
+rdfs:hasRate rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#hasService
+rdfs:hasService rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#hasStatus
+rdfs:hasStatus rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#hasValue
+rdfs:hasValue rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#translate
+rdfs:translate rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Active
+:Active rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :Status ;
+        rdfs:translate "აქტიური"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Annual_interest_rate
+:Annual_interest_rate rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :interest_rate .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Annual_interest_rate ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget :interest_rate ;
+   rdfs:comment 15.70 ,
+                "Not Defined" ;
+   rdfs:hasService :branch ,
+                   :tbconline ;
+   rdfs:hasValue "12.26"^^xsd:double ,
+                 "15.8"^^xsd:double ,
+                 "18.5"^^xsd:double ,
+                 "19.23"^^xsd:double ,
+                 "19.26"^^xsd:double ,
+                 "2.21"^^xsd:double ,
+                 "20.14"^^xsd:double ,
+                 "22.35"^^xsd:double ,
+                 "4.54"^^xsd:double ,
+                 7.64 ,
+                 "7.74"^^xsd:double ,
+                 "8.79"^^xsd:double ,
+                 8.85 ,
+                 9.10 ,
+                 9.11 ,
+                 "9.54"^^xsd:double ;
+   rdfs:isDefinedBy "false"^^xsd:boolean ,
+                    "true"^^xsd:boolean
+ ] .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Deactivated
+:Deactivated rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :Status ;
+             rdfs:translate "გაუქმებული"@geo .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Deactivated ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget :Status ;
+   rdfs:hasRate "5.0"^^xsd:double
+ ] .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Effective
+:Effective rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :interest_rate .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Effective_interest_rate
+:Effective_interest_rate rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :interest_rate ;
+                         rdfs:translate "ეფექტური საპროცენტო"@geo ,
+                                        "საპროცენტო"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Service
+:Service rdf:type owl:ObjectProperty ;
+         rdfs:translate "სერვისი"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Status
+:Status rdf:type owl:ObjectProperty ;
+        rdfs:translate "სტატუსი"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#TBCGZAVNILEBI
+:TBCGZAVNILEBI rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :Service ;
+               rdfs:translate "თიბისი გზავნილები"@geo .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :TBCGZAVNILEBI ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget :Service ;
+   rdfs:comment "Not Defined" ,
+                "false"^^xsd:boolean ;
+   rdfs:hasService :TBCGZAVNILEBI ,
+                   :branch ,
+                   :call_centre ,
+                   :mbank ,
+                   :tbconline ;
+   rdfs:hasValue "13.47"^^xsd:double ,
+                 "15.7"^^xsd:double ,
+                 "15.8"^^xsd:double ,
+                 "18.5"^^xsd:double ,
+                 "2.01"^^xsd:double ,
+                 "20.14"^^xsd:double ,
+                 "22.35"^^xsd:double ,
+                 "4.54"^^xsd:double ,
+                 "8.85"^^xsd:double ,
+                 "9.1"^^xsd:double ,
+                 "9.54"^^xsd:double ;
+   rdfs:isDefinedBy "false"^^xsd:boolean ,
+                    "true"^^xsd:boolean
+ ] .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#branch
+:branch rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :Service ;
+        rdfs:translate "ფილიალში ვიზიტი" .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#call_centre
+:call_centre rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :Service ;
+             rdfs:translate "ქოლ ცენტრი"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#interest_rate
+:interest_rate rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#mbank
+:mbank rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :Service ;
+       rdfs:translate "მობაილ ბანკი"@geo .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :mbank ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget :Service ;
+   rdfs:comment "Not Defined" ;
+   rdfs:hasRate "7.71"^^xsd:double ,
+                "8.57"^^xsd:double ;
+   rdfs:hasService :TBCGZAVNILEBI ,
+                   :branch ,
+                   :mbank ,
+                   :tbconline ;
+   rdfs:hasStatus :Active ;
+   rdfs:isDefinedBy "false"^^xsd:boolean ,
+                    "true"^^xsd:boolean
+ ] .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#tbconline
+:tbconline rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :Service ;
+           rdfs:translate "თიბისი ონლაინ"@geo ,
+                          "ინტერნეტ ბანკი"@geo .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Car_Installment
+:Car_Installment rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :Loan_Type ;
+                 rdfs:hasRate :Effective_interest_rate ;
+                 rdfs:hasService :Service ;
+                 rdfs:hasStatus :Status ;
+                 rdfs:translate "ავტო განვადება"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Child_Deposit
+:Child_Deposit rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf :Deposit_Type ;
+               rdfs:hasRate :Effective_interest_rate ;
+               rdfs:hasService :Service ;
+               rdfs:hasStatus :Status ;
+               rdfs:translate "საბავშვო დეპოზიტი"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Coupon_CD
+:Coupon_CD rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :Deposit_Type ;
+           rdfs:hasRate :Effective_interest_rate ;
+           rdfs:hasService :Service ;
+           rdfs:hasStatus :Status ;
+           rdfs:translate "საპროცენტო სადეპოზიტო სერთიფიკატი"@geo .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource :Coupon_CD ;
+   owl:annotatedProperty rdfs:subPropertyOf ;
+   owl:annotatedTarget :Deposit_Type ;
+   rdfs:comment :Active ,
+                :branch ,
+                :mbank ;
+   rdfs:hasService :branch ,
+                   :call_centre ;
+   rdfs:hasStatus :Deactivated
+ ] .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Deposit_Type
+:Deposit_Type rdf:type owl:DatatypeProperty ;
+              rdfs:hasRate :interest_rate ;
+              rdfs:hasService :Service ;
+              rdfs:hasStatus :Status ;
+              rdfs:translate "ანაბრის ტიპები"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#I_Wish
+:I_Wish rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :Deposit_Type ;
+        rdfs:hasRate :Effective_interest_rate ;
+        rdfs:hasService :Service ;
+        rdfs:hasStatus :Status ;
+        rdfs:translate "ანაბარი \"მინდა\""@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Installment
+:Installment rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :Loan_Type ;
+             rdfs:hasRate :Effective_interest_rate ;
+             rdfs:hasService :Service ;
+             rdfs:hasStatus :Status ;
+             rdfs:translate "განვადება"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#International_Transfers
+:International_Transfers rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf :Money_Transfer_Types ;
+                         rdfs:hasRate :Effective_interest_rate ;
+                         rdfs:hasService :Service ;
+                         rdfs:hasStatus :Status ;
+                         rdfs:translate "საერთაშორისო გზავნილები"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Loan_Type
+:Loan_Type rdf:type owl:DatatypeProperty ;
+           rdfs:hasRate :Effective_interest_rate ;
+           rdfs:hasService :Service ;
+           rdfs:hasStatus :Status ;
+           rdfs:translate "სესხის ტიპი"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Local_Transfers
+:Local_Transfers rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :Money_Transfer_Types ;
+                 rdfs:hasService :Effective_interest_rate ,
+                                 :Service ;
+                 rdfs:hasStatus :Status ;
+                 rdfs:translate "ლოკალური გზავნილები"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Money_Transfer_Types
+:Money_Transfer_Types rdf:type owl:DatatypeProperty ;
+                      rdfs:hasStatus :Status ;
+                      rdfs:translate "ფულადი გზავნილების ტიპები"@geo .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Deposit
+:Deposit rdf:type owl:Class ;
+         rdfs:subClassOf :Personal_Products ;
+         rdfs:hasRate :interest_rate ;
+         rdfs:hasService :Service ;
+         rdfs:hasStatus :Status ;
+         rdfs:isDefinedBy :Deposit_Type ;
+         rdfs:translate "ანაბრები"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Financial_Institution
+:Financial_Institution rdf:type owl:Class ;
+                       rdfs:subClassOf :Institutions .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Institutions
+:Institutions rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Loan
+:Loan rdf:type owl:Class ;
+      rdfs:subClassOf :Personal_Products ;
+      rdfs:hasRate :interest_rate ;
+      rdfs:hasService :Service ;
+      rdfs:hasStatus :Status ;
+      rdfs:isDefinedBy :Loan_Type ;
+      rdfs:translate "სესხები"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Money_Transfer
+:Money_Transfer rdf:type owl:Class ;
+                rdfs:subClassOf :Personal_Products ;
+                rdfs:hasService :Service ;
+                rdfs:hasStatus :Status ;
+                rdfs:isDefinedBy :Money_Transfer_Types ;
+                rdfs:translate "ფულადი გზავნილები"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Personal_Products
+:Personal_Products rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.wikidata.org/entity/Q2620975> ;
+                   rdfs:hasService :Service ;
+                   rdfs:hasStatus :Status ;
+                   rdfs:translate "ფიზიკური პირის პროდუქტები"@geo .
+
+
+###  http://www.semanticweb.org/tsotne/ontologies/2021/4/testont#Political_Institution
+:Political_Institution rdf:type owl:Class ;
+                       rdfs:subClassOf :Institutions .
+
+
+###  http://www.wikidata.org/entity/Q2620975
+<http://www.wikidata.org/entity/Q2620975> rdf:type owl:Class ;
+                                          rdfs:subClassOf :Financial_Institution .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
